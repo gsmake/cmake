@@ -19,9 +19,11 @@ local init = function(self)
 
     local loader = self.Owner.Loader
 
+    local buildconfig = self.Owner.Loader.Config.BuildConfig
+
     outputdir = filepath.toslash(filepath.join(
         loader.Temp,"clang",
-        loader.Config.TargetHost .. "-" .. loader.Config.TargetArch))
+        loader.Config.TargetHost .. "-" .. loader.Config.TargetArch .. "-" .. buildconfig))
 
 
     if not fs.exists(outputdir) then
